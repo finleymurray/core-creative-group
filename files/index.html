@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../assets/gate.js"></script>
+    <style id="ccg-gate-hide">body{visibility:hidden}body.ccg-ready{visibility:visible}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Documents — Core Creative Group</title>
@@ -10,61 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Password gate */
-        .gate-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: #0a0a0a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .gate-overlay.hidden { display: none; }
-        .gate-logo { height: 48px; opacity: 0.7; }
-        .gate-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #f5f5f5;
-        }
-        .gate-form { display: flex; gap: 0.5rem; }
-        .gate-input {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 8px;
-            padding: 0.6rem 1rem;
-            color: #f5f5f5;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            outline: none;
-            width: 220px;
-        }
-        .gate-input:focus { border-color: rgba(220, 38, 38, 0.5); }
-        .gate-input::placeholder { color: rgba(255,255,255,0.25); }
-        .gate-btn {
-            background: #dc2626;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.6rem 1.25rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .gate-btn:hover { background: #b91c1c; }
-        .gate-error {
-            color: #dc2626;
-            font-size: 0.8rem;
-            height: 1rem;
-        }
-        .main-content { display: none; }
-        .main-content.visible { display: block; }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -298,19 +245,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Password Gate -->
-    <div class="gate-overlay" id="gate">
-        <img src="https://corecreativegroup.co.uk/assets/logos/ccg-icon-white.png" class="gate-logo" alt="CCG">
-        <div class="gate-title">Manager Documents</div>
-        <form class="gate-form" onsubmit="return checkAccess(event)">
-            <input type="password" class="gate-input" id="gate-pw" placeholder="Enter access code" autocomplete="off" autofocus>
-            <button type="submit" class="gate-btn">Enter</button>
-        </form>
-        <div class="gate-error" id="gate-error"></div>
-    </div>
-
-    <div class="main-content" id="main-content">
 
     <div class="header">
         <img src="https://corecreativegroup.co.uk/assets/logos/ccg-icon-white.png" alt="CCG">
@@ -560,31 +494,7 @@
         &copy; 2026 Core Creative Group Ltd. Internal use only.
     </div>
 
-    </div><!-- end main-content -->
-
     <script>
-        // Check session
-        if (sessionStorage.getItem('ccg_mgr_auth') === 'true') {
-            document.getElementById('gate').classList.add('hidden');
-            document.getElementById('main-content').classList.add('visible');
-        }
-
-        async function checkAccess(e) {
-            e.preventDefault();
-            const pw = document.getElementById('gate-pw').value;
-            // Current password: "ccg2026"
-            if (pw === 'ccg2026') {
-                sessionStorage.setItem('ccg_mgr_auth', 'true');
-                document.getElementById('gate').classList.add('hidden');
-                document.getElementById('main-content').classList.add('visible');
-            } else {
-                document.getElementById('gate-error').textContent = 'Incorrect access code';
-                document.getElementById('gate-pw').value = '';
-                document.getElementById('gate-pw').focus();
-            }
-            return false;
-        }
-
         function toggleCategory(header) {
             const category = header.parentElement;
             category.classList.toggle('collapsed');
