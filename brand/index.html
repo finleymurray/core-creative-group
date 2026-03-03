@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Creative Group — Master Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #161616;
+    --bg-card-hover: #1e1e1e;
+    --red-primary: #dc2626;
+    --red-dark: #991b1b;
+    --purple: #8b5cf6;
+    --ec-green: #166534;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-muted: #666;
+    --border: #2a2a2a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* SIDEBAR NAV */
+.sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; width: 260px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border);
+    overflow-y: auto; z-index: 100;
+    padding: 2rem 0;
+}
+.sidebar-logo {
+    padding: 0 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+.sidebar-logo img { height: 40px; }
+.sidebar-logo span {
+    display: block; font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem; color: var(--text-muted); margin-top: 6px;
+    text-transform: uppercase; letter-spacing: 0.15em;
+}
+.nav-section {
+    padding: 0.75rem 1.5rem 0.25rem;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--text-muted); font-weight: 600;
+}
+.nav-item {
+    display: block; padding: 8px 1.5rem; font-size: 0.85rem;
+    color: var(--text-secondary); text-decoration: none;
+    transition: all 0.15s; cursor: pointer; border-left: 3px solid transparent;
+}
+.nav-item:hover { color: var(--text-primary); background: rgba(255,255,255,0.03); }
+.nav-item.active { color: var(--purple); border-left-color: var(--purple); background: rgba(139,92,246,0.05); }
+.nav-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
+
+/* MAIN CONTENT */
+.main { margin-left: 260px; }
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* COVER */
+.cover {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 4rem 2rem; position: relative; overflow: hidden;
+}
+.cover::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(139,92,246,0.08) 0%, transparent 60%);
+}
+.cover img { height: 80px; margin-bottom: 2rem; position: relative; }
+.cover h1 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 3rem;
+    font-weight: 700; letter-spacing: -0.02em; position: relative;
+}
+.cover .subtitle {
+    font-size: 1rem; color: var(--purple); text-transform: uppercase;
+    letter-spacing: 0.2em; margin-top: 1rem; position: relative;
+}
+.cover .meta {
+    font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem;
+    position: relative;
+}
+.cover .version {
+    display: inline-block; padding: 4px 14px; border: 1px solid var(--border);
+    border-radius: 100px; font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;
+    position: relative;
+}
+
+/* PAGE HEADERS */
+.page-header {
+    padding: 5rem 3rem 3rem;
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+}
+.page-header::before {
+    content: ''; position: absolute; inset: 0; opacity: 0.5;
+}
+.page-header .brand-badge {
+    display: inline-block; padding: 4px 14px; border-radius: 100px;
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em;
+    font-weight: 600; margin-bottom: 1.5rem; position: relative;
+}
+.page-header h2 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem;
+    font-weight: 700; position: relative;
+}
+.page-header p {
+    font-size: 1rem; color: var(--text-secondary); margin-top: 0.75rem;
+    max-width: 700px; position: relative;
+}
+.page-header .brand-logo {
+    position: absolute; right: 3rem; top: 50%; transform: translateY(-50%);
+    height: 100px; opacity: 0.15;
+}
+
+/* SECTIONS */
+.section {
+    padding: 3rem; border-bottom: 1px solid var(--border);
+}
+.section-title {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem;
+    font-weight: 700; margin-bottom: 0.5rem;
+}
+.section-desc {
+    font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+/* LOGO DISPLAY */
+.logo-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.logo-box {
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; transition: border-color 0.2s;
+}
+.logo-box:hover { border-color: #444; }
+.logo-display {
+    height: 180px; display: flex; align-items: center; justify-content: center;
+    padding: 2rem;
+}
+.logo-display img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.logo-display.dark { background: var(--bg-primary); }
+.logo-display.light { background: #ffffff; }
+.logo-display.red { background: var(--red-primary); }
+.logo-display.green { background: var(--ec-green); }
+.logo-display.purple { background: var(--purple); }
+.logo-label {
+    padding: 12px 16px; border-top: 1px solid var(--border);
+    background: var(--bg-card); font-size: 0.8rem; color: var(--text-secondary);
+}
+.logo-label strong { color: var(--text-primary); font-weight: 600; }
+
+/* COLOUR SWATCHES */
+.colour-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.colour-swatch {
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border);
+}
+.swatch-block { height: 100px; }
+.swatch-info {
+    padding: 12px 16px; background: var(--bg-card);
+}
+.swatch-info .name { font-weight: 600; font-size: 0.85rem; }
+.swatch-info .hex { font-size: 0.8rem; color: var(--text-muted); font-family: 'Space Grotesk', monospace; }
+.swatch-info .use { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; }
+
+/* TYPOGRAPHY */
+.type-sample {
+    padding: 2rem; border: 1px solid var(--border); border-radius: 12px;
+    margin-bottom: 1.5rem; background: var(--bg-card);
+}
+.type-sample .font-name {
+    font-size: 0.75rem; color: var(--purple); text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 1rem;
+}
+.type-sample .sample-text { line-height: 1.4; }
+
+/* USAGE RULES */
+.rules-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.rule-card {
+    padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px;
+    background: var(--bg-card);
+}
+.rule-card.do { border-left: 3px solid #22c55e; }
+.rule-card.dont { border-left: 3px solid #ef4444; }
+.rule-label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 700; margin-bottom: 0.75rem;
+}
+.rule-card.do .rule-label { color: #22c55e; }
+.rule-card.dont .rule-label { color: #ef4444; }
+.rule-card p { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* MAZE CARDS */
+.maze-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+}
+.maze-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; background: var(--bg-card);
+}
+.maze-card-logo {
+    height: 160px; display: flex; align-items: center;
+    justify-content: center; padding: 1.5rem;
+}
+.maze-card-logo img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.maze-card-info {
+    padding: 1.25rem; border-top: 1px solid var(--border);
+}
+.maze-card-info h4 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;
+}
+.maze-card-info p { font-size: 0.8rem; color: var(--text-secondary); }
+.maze-colour-strip {
+    display: flex; height: 6px;
+}
+.maze-colour-strip span { flex: 1; }
+
+/* TONE CARD */
+.tone-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.tone-card {
+    padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px;
+    background: var(--bg-card);
+}
+.tone-card h4 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+.tone-card p { font-size: 0.85rem; color: var(--text-secondary); }
+.tone-example {
+    margin-top: 1rem; padding: 1rem; background: var(--bg-primary);
+    border-radius: 8px; font-size: 0.8rem; color: var(--text-secondary);
+    font-style: italic; border-left: 3px solid var(--purple);
+}
+
+/* TABLE OF CONTENTS */
+.toc-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+.toc-card {
+    padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px;
+    cursor: pointer; transition: all 0.2s; background: var(--bg-card);
+}
+.toc-card:hover { border-color: var(--purple); background: var(--bg-card-hover); transform: translateY(-2px); }
+.toc-card .toc-num {
+    font-family: 'Space Grotesk', sans-serif; font-size: 2rem;
+    font-weight: 700; color: var(--purple); opacity: 0.5; margin-bottom: 0.5rem;
+}
+.toc-card h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+.toc-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+/* HIERARCHY */
+.hierarchy {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    padding: 2rem 0;
+}
+.hierarchy-level {
+    display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.hierarchy-box {
+    padding: 1rem 2rem; border: 1px solid var(--border); border-radius: 8px;
+    text-align: center; background: var(--bg-card); min-width: 180px;
+}
+.hierarchy-box.parent { border-color: var(--purple); background: rgba(139,92,246,0.05); }
+.hierarchy-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; }
+.hierarchy-box p { font-size: 0.75rem; color: var(--text-muted); }
+.hierarchy-connector {
+    width: 2px; height: 30px; background: var(--border);
+}
+.hierarchy-branches {
+    position: relative; display: flex; gap: 1.5rem;
+}
+.hierarchy-branches::before {
+    content: ''; position: absolute; top: -15px; left: 50%;
+    transform: translateX(-50%); width: 80%; height: 1px;
+    background: var(--border);
+}
+
+/* PRINT */
+@media print {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .page { display: block !important; page-break-before: always; }
+    .page:first-child { page-break-before: auto; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .sidebar { width: 220px; }
+    .main { margin-left: 220px; }
+    .section { padding: 2rem 1.5rem; }
+    .page-header { padding: 3rem 1.5rem 2rem; }
+    .page-header .brand-logo { display: none; }
+}
+@media (max-width: 640px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+}
+
+/* ARTWORK CARDS */
+.artwork-section {
+    margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);
+}
+.artwork-section h3 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+    margin-bottom: 1rem; color: var(--text-primary);
+}
+.artwork-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.artwork-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; background: var(--bg-card);
+}
+.artwork-preview {
+    height: 180px; display: flex; align-items: center;
+    justify-content: center; background: var(--bg-primary);
+    overflow: hidden;
+}
+.artwork-preview img {
+    max-height: 100%; max-width: 100%; object-fit: cover;
+}
+.artwork-info {
+    padding: 1rem;
+}
+.artwork-info h4 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem;
+    margin-bottom: 0.75rem; word-break: break-word;
+}
+.artwork-links {
+    display: flex; flex-direction: column; gap: 0.5rem;
+}
+.artwork-link {
+    display: inline-flex; align-items: centre; gap: 0.5rem;
+    font-size: 0.8rem; color: var(--purple); text-decoration: none;
+    padding: 0.5rem; margin: -0.5rem; border-radius: 4px;
+    transition: background 0.2s;
+}
+.artwork-link:hover {
+    background: rgba(139,92,246,0.1);
+}
+.artwork-link::before {
+    content: '↓'; display: inline-block; width: 14px; text-align: centre;
+}
+.asset-folder-link {
+    display: inline-block; margin-top: 1rem; padding: 0.75rem 1rem;
+    background: rgba(139,92,246,0.1); border: 1px solid var(--purple);
+    border-radius: 8px; color: var(--purple); text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; transition: all 0.2s;
+}
+.asset-folder-link:hover {
+    background: rgba(139,92,246,0.2);
+}
+
+/* ASSETS PAGE GRID */
+.asset-brand-section {
+    margin-bottom: 3rem;
+}
+.asset-brand-header {
+    display: flex; align-items: centre; gap: 1rem; margin-bottom: 1.5rem;
+}
+.asset-brand-header h3 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem;
+}
+.asset-logo-preview {
+    width: 80px; height: 80px; display: flex;
+    align-items: centre; justify-content: centre;
+    background: var(--bg-primary); border-radius: 8px;
+}
+.asset-logo-preview img {
+    max-width: 100%; max-height: 100%; object-fit: contain;
+}
+.assets-attraction-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.assets-attraction-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--bg-card); padding: 1.5rem;
+}
+.assets-attraction-card h4 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ARTWORK CARDS */
+.artwork-section {
+    margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);
+}
+.artwork-section h3 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+    margin-bottom: 1rem; color: var(--text-primary);
+}
+.artwork-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.artwork-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; background: var(--bg-card);
+}
+.artwork-preview {
+    height: 180px; display: flex; align-items: center;
+    justify-content: center; background: var(--bg-primary);
+    overflow: hidden;
+}
+.artwork-preview img {
+    max-height: 100%; max-width: 100%; object-fit: cover;
+}
+.artwork-info {
+    padding: 1rem;
+}
+.artwork-info h4 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem;
+    margin-bottom: 0.75rem; word-break: break-word;
+}
+.artwork-links {
+    display: flex; flex-direction: column; gap: 0.5rem;
+}
+.artwork-link {
+    display: inline-flex; align-items: centre; gap: 0.5rem;
+    font-size: 0.8rem; color: var(--purple); text-decoration: none;
+    padding: 0.5rem; margin: -0.5rem; border-radius: 4px;
+    transition: background 0.2s;
+}
+.artwork-link:hover {
+    background: rgba(139,92,246,0.1);
+}
+.artwork-link::before {
+    content: '↓'; display: inline-block; width: 14px; text-align: centre;
+}
+.asset-folder-link {
+    display: inline-block; margin-top: 1rem; padding: 0.75rem 1rem;
+    background: rgba(139,92,246,0.1); border: 1px solid var(--purple);
+    border-radius: 8px; color: var(--purple); text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; transition: all 0.2s;
+}
+.asset-folder-link:hover {
+    background: rgba(139,92,246,0.2);
+}
+
+/* ASSETS PAGE GRID */
+.asset-brand-section {
+    margin-bottom: 3rem;
+}
+.asset-brand-header {
+    display: flex; align-items: centre; gap: 1rem; margin-bottom: 1.5rem;
+}
+.asset-brand-header h3 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem;
+}
+.asset-logo-preview {
+    width: 80px; height: 80px; display: flex;
+    align-items: centre; justify-content: centre;
+    background: var(--bg-primary); border-radius: 8px;
+}
+.asset-logo-preview img {
+    max-width: 100%; max-height: 100%; object-fit: contain;
+}
+.assets-attraction-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.assets-attraction-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--bg-card); padding: 1.5rem;
+}
+.assets-attraction-card h4 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ASSETS PAGE */
+.asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+.asset-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-card);
+    transition: border-color 0.2s, transform 0.2s;
+}
+.asset-card:hover {
+    border-color: #444;
+    transform: translateY(-2px);
+}
+.asset-card-thumb {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+}
+.asset-card-thumb img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+.asset-card-body {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--border);
+}
+.asset-card-body h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+.asset-card-body p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.asset-card-link {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+}
+.asset-card-link:hover {
+    color: #a78bfa;
+}
+.asset-card-link::after {
+    content: ' \2192';
+}
+.master-drive-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--purple);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.master-drive-btn:hover {
+    background: #7c3aed;
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <div class="sidebar-logo">
+        <img src="img/logo_01.png" alt="CCG">
+        <span>Brand Guidelines</span>
+    </div>
+
+    <div class="nav-section">Overview</div>
+    <a class="nav-item active" onclick="showPage('cover')">Cover</a>
+    <a class="nav-item" onclick="showPage('intro')">Introduction</a>
+    <a class="nav-item" onclick="showPage('architecture')">Brand Architecture</a>
+
+    <div class="nav-section">Brands</div>
+    <a class="nav-item" onclick="showPage('ccg')">
+        <span class="nav-dot" style="background:var(--purple);"></span>Core Creative Group
+    </a>
+
+
+    <a class="nav-item" onclick="showPage('sc')">
+        <span class="nav-dot" style="background:var(--red-primary);"></span>Scare Core
+    </a>
+    <a class="nav-item" onclick="showPage('ic')">
+        <span class="nav-dot" style="background:#fff; border: 1px solid #444;"></span>Immersive Core
+    </a>
+    <a class="nav-item" onclick="showPage('ec')">
+        <span class="nav-dot" style="background:var(--ec-green);"></span>Escape Core
+    </a>
+
+    <div class="nav-section">Experiences</div>
+    <a class="nav-item" onclick="showPage('mazes')">Scare Core Mazes</a>
+    <a class="nav-item" onclick="showPage('shows')">Scare Core Shows</a>
+
+    <div class="nav-section">Standards</div>
+    <a class="nav-item" onclick="showPage('typography')">Typography</a>
+    <a class="nav-item" onclick="showPage('tone')">Tone of Voice</a>
+    <a class="nav-item" onclick="showPage('usage')">Usage Rules</a>
+
+    <div class="nav-section">Resources</div>
+    <a class="nav-item" onclick="showPage('assets')">Artwork &amp; Assets</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ===== COVER ===== -->
+<div id="cover" class="page active">
+<div class="cover">
+    <img src="img/logo_02.png" alt="Core Creative Group">
+    <h1>Brand Guidelines</h1>
+    <div class="subtitle">Core Creative Group</div>
+    <div class="meta">Master Style Guide &mdash; All Brands</div>
+    <div class="version">v1.0 &mdash; March 2026</div>
+</div>
+</div>
+
+<!-- ===== INTRODUCTION ===== -->
+<div id="intro" class="page">
+<div class="page-header">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Overview</div>
+    <h2>Introduction</h2>
+    <p>This document defines the visual identity, tone, and usage rules for Core Creative Group and all subsidiary and experience brands.</p>
+</div>
+<div class="section">
+    <div class="section-title">Purpose</div>
+    <div class="section-desc">
+        These guidelines exist to ensure consistency across every touchpoint &mdash; from digital marketing and printed materials to on-site signage and merchandise. Every member of the team, every agency partner, and every supplier should use this document as the single source of truth for how our brands look, sound, and feel.
+    </div>
+    <div class="section-title" style="margin-top: 2rem;">What's Inside</div>
+    <div class="toc-grid" style="margin-top: 1rem;">
+        <div class="toc-card" onclick="showPage('architecture')">
+            <div class="toc-num">01</div>
+            <h4>Brand Architecture</h4>
+            <p>How the brands relate to each other</p>
+        </div>
+        <div class="toc-card" onclick="showPage('ccg')">
+            <div class="toc-num">02</div>
+            <h4>Core Creative Group</h4>
+            <p>Parent brand identity</p>
+        </div>
+        <div class="toc-card" onclick="showPage('sc')">
+            <div class="toc-num">03</div>
+            <h4>Scare Core</h4>
+            <p>Scream park brand</p>
+        </div>
+        <div class="toc-card" onclick="showPage('ic')">
+            <div class="toc-num">04</div>
+            <h4>Immersive Core</h4>
+            <p>Theatre &amp; immersive brand</p>
+        </div>
+        <div class="toc-card" onclick="showPage('ec')">
+            <div class="toc-num">05</div>
+            <h4>Escape Core</h4>
+            <p>Escape room brand</p>
+        </div>
+        <div class="toc-card" onclick="showPage('mazes')">
+            <div class="toc-num">06</div>
+            <h4>Maze Worlds</h4>
+            <p>Individual experience identities</p>
+        </div>
+        <div class="toc-card" onclick="showPage('shows')">
+            <div class="toc-num">07</div>
+            <h4>Scare Core Shows</h4>
+            <p>Live show production identities</p>
+        </div>
+        <div class="toc-card" onclick="showPage('typography')">
+            <div class="toc-num">08</div>
+            <h4>Typography</h4>
+            <p>Typefaces and hierarchy</p>
+        </div>
+        <div class="toc-card" onclick="showPage('tone')">
+            <div class="toc-num">09</div>
+            <h4>Tone of Voice</h4>
+            <p>How each brand speaks</p>
+        </div>
+        <div class="toc-card" onclick="showPage('usage')">
+            <div class="toc-num">10</div>
+            <h4>Usage Rules</h4>
+            <p>Do's, don'ts, and clear space</p>
+        </div>
+        <div class="toc-card" onclick="showPage('assets')">
+            <div class="toc-num">11</div>
+            <h4>Artwork &amp; Assets</h4>
+            <p>All logos, artwork, and brand files</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== BRAND ARCHITECTURE ===== -->
+<div id="architecture" class="page">
+<div class="page-header">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Structure</div>
+    <h2>Brand Architecture</h2>
+    <p>Core Creative Group operates a branded house model. The parent company owns all IP and creative direction, with three operating subsidiaries each serving a distinct entertainment vertical.</p>
+</div>
+<div class="section">
+    <div class="section-title">Hierarchy</div>
+    <div class="section-desc">The CCG icon and wordmark should never appear on public-facing guest materials. It exists purely as the corporate and investor-facing identity. Guests interact with the subsidiary brands and their experience brands.</div>
+    <div class="hierarchy">
+        <div class="hierarchy-box parent">
+            <img src="img/logo_03.png" style="height: 30px; margin-bottom: 8px; filter: invert(1);" alt="">
+            <h4>Core Creative Group</h4>
+            <p>Parent &amp; IP Owner &mdash; Corporate only</p>
+        </div>
+        <div class="hierarchy-connector"></div>
+        <div class="hierarchy-level">
+            <div class="hierarchy-box" style="border-color: var(--red-primary);">
+                <h4 style="color: var(--red-primary);">Scare Core</h4>
+                <p>Scream Park Operations</p>
+
+            </div>
+            <div class="hierarchy-box" style="border-color: #888;">
+                <h4>Immersive Core</h4>
+                <p>Theatre &amp; Immersive</p>
+
+            </div>
+            <div class="hierarchy-box" style="border-color: var(--ec-green);">
+                <h4 style="color: var(--ec-green);">Escape Core</h4>
+                <p>Escape Rooms &amp; Puzzles</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">Brand Visibility Rules</div>
+    <div class="rules-grid">
+        <div class="rule-card do">
+            <div class="rule-label">Guest-Facing</div>
+            <p>Use subsidiary logos (Scare Core, Immersive Core, Escape Core) and experience logos on all customer touchpoints: tickets, signage, social media, advertising, and merchandise.</p>
+        </div>
+        <div class="rule-card do">
+            <div class="rule-label">Corporate / Investor</div>
+            <p>Use the Core Creative Group logo and identity on business plans, investor materials, legal documents, supplier contracts, and internal communications.</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Never</div>
+            <p>Never place the CCG parent logo on guest-facing materials. The corporate brand should be invisible to the public. Guests visit "Scare Core", not "a Core Creative Group experience".</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== CORE CREATIVE GROUP ===== -->
+<div id="ccg" class="page">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(139,92,246,0.05), transparent);">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Parent Brand</div>
+    <h2>Core Creative Group</h2>
+    <p>The corporate identity for investor relations, legal documentation, business plans, and internal communications. Professional, authoritative, and understated.</p>
+    <img class="brand-logo" src="img/logo_04.png" style="filter: invert(1); opacity: 0.08;" alt="">
+</div>
+
+<div class="section">
+    <div class="section-title">Primary Logos</div>
+    <div class="section-desc">The CCG identity uses a double-C icon mark alongside a wordmark. Both can be used independently or together.</div>
+    <div class="logo-grid">
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1eAnNwy-5ZMFkF_W3Ijhs3Q9966qxBvqW/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_05.png" alt="CCG White on Dark"></a>
+            </div>
+            <div class="logo-label"><strong>Full Lockup</strong> &mdash; White on dark</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display light">
+                <a href="https://drive.google.com/file/d/1axAznhc3pHy4FkZRnbFo3vRGqk0ohDaG/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_06.png" alt="CCG Black on Light"></a>
+            </div>
+            <div class="logo-label"><strong>Full Lockup</strong> &mdash; Black on light</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1Kh65HIKdHBbR72a85LQEkTV8Y93FJg8j/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_07.png" alt="CCG Icon Red" style="max-height: 120px;"></a>
+            </div>
+            <div class="logo-label"><strong>Icon Mark</strong> &mdash; Primary red</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display light">
+                <a href="https://drive.google.com/file/d/1lVSyRD2UVHayZZib_mB7dbFpRUyYt0l8/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_08.png" alt="CCG Icon Black" style="max-height: 120px;"></a>
+            </div>
+            <div class="logo-label"><strong>Icon Mark</strong> &mdash; Black on light</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1zO7tMVZIyhUts2QM4sVa8iYbu6EDyrSC/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_09.png" alt="CCG Icon White" style="max-height: 120px;"></a>
+            </div>
+            <div class="logo-label"><strong>Icon Mark</strong> &mdash; White on dark</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display red">
+                <a href="https://drive.google.com/file/d/1zO7tMVZIyhUts2QM4sVa8iYbu6EDyrSC/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_10.png" alt="CCG Icon on Red" style="max-height: 120px;"></a>
+            </div>
+            <div class="logo-label"><strong>Icon Mark</strong> &mdash; White on brand red</div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Colour Palette</div>
+    <div class="section-desc">The CCG palette is built around deep reds, purples, and near-black backgrounds. The purple accent is used sparingly for digital highlights and interactive elements.</div>
+    <div class="colour-grid">
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #dc2626;"></div>
+            <div class="swatch-info">
+                <div class="name">CCG Red</div>
+                <div class="hex">#DC2626</div>
+                <div class="use">Primary brand colour, icon mark, CTAs</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #991b1b;"></div>
+            <div class="swatch-info">
+                <div class="name">Red Dark</div>
+                <div class="hex">#991B1B</div>
+                <div class="use">Hover states, gradients</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #8b5cf6;"></div>
+            <div class="swatch-info">
+                <div class="name">CCG Purple</div>
+                <div class="hex">#8B5CF6</div>
+                <div class="use">Digital accent, badges, highlights</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #0a0a0a; border-bottom: 1px solid #333;"></div>
+            <div class="swatch-info">
+                <div class="name">Background Primary</div>
+                <div class="hex">#0A0A0A</div>
+                <div class="use">Page backgrounds</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #f5f5f5;"></div>
+            <div class="swatch-info">
+                <div class="name">Text Primary</div>
+                <div class="hex">#F5F5F5</div>
+                <div class="use">Headings and body text on dark</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #a3a3a3;"></div>
+            <div class="swatch-info">
+                <div class="name">Text Secondary</div>
+                <div class="hex">#A3A3A3</div>
+                <div class="use">Body copy, descriptions</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== SCARE CORE ===== -->
+<div id="sc" class="page">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(220,38,38,0.08), transparent);">
+    <div class="brand-badge" style="border: 1px solid var(--red-primary); color: var(--red-primary);">Subsidiary Brand</div>
+    <h2>Scare Core</h2>
+    <p>The UK's premier scream park experience. Bold, visceral, and unapologetic. The Scare Core identity is designed to feel dangerous and exciting.</p>
+</div>
+<div class="section">
+    <div class="section-title">Logo Variants</div>
+    <div class="section-desc">The Scare Core wordmark features a distinctive shattered "E" in CORE, rendered in the brand red. "SCARE" appears in black or white depending on background. The shattered E is a protected brand element and must never be recreated or modified.</div>
+    <div class="logo-grid">
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1aBJWyNAV_trfd5-9StFz2kUEwyBPBENw/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_11.png" alt="Scare Core white"></a>
+            </div>
+            <div class="logo-label"><strong>Primary</strong> &mdash; White + Red on dark</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display light">
+                <a href="https://drive.google.com/file/d/1nqmSmcWxS-5r-pH1TXJazmmkc3A67vgh/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_12.png" alt="Scare Core black"></a>
+            </div>
+            <div class="logo-label"><strong>Primary</strong> &mdash; Black + Red on light</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">Colour Palette</div>
+    <div class="colour-grid">
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #dc2626;"></div>
+            <div class="swatch-info">
+                <div class="name">Scare Red</div>
+                <div class="hex">#DC2626</div>
+                <div class="use">Primary &mdash; "CORE" text, CTAs, accents</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #0a0a0a; border-bottom: 1px solid #333;"></div>
+            <div class="swatch-info">
+                <div class="name">Void Black</div>
+                <div class="hex">#0A0A0A</div>
+                <div class="use">Backgrounds, "SCARE" text on dark</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #f5f5f5;"></div>
+            <div class="swatch-info">
+                <div class="name">Bone White</div>
+                <div class="hex">#F5F5F5</div>
+                <div class="use">"SCARE" text on dark backgrounds</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #991b1b;"></div>
+            <div class="swatch-info">
+                <div class="name">Blood Dark</div>
+                <div class="hex">#991B1B</div>
+                <div class="use">Gradients, depth, hover states</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== IMMERSIVE CORE ===== -->
+<div id="ic" class="page">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);">
+    <div class="brand-badge" style="border: 1px solid #888; color: #ccc;">Subsidiary Brand</div>
+    <h2>Immersive Core</h2>
+    <p>Theatre, immersive productions, and boundary-pushing live performance. The Immersive Core identity is stark, dramatic, and deliberately monochromatic.</p>
+</div>
+<div class="section">
+    <div class="section-title">Logo Variants</div>
+    <div class="section-desc">The Immersive Core logo uses a distinctive split treatment: "IMMERSIVE" in one tone and "CORE" reversed out on a solid block. This creates a visual tension that reflects the brand's theatrical nature. The logo must always maintain this two-part relationship.</div>
+    <div class="logo-grid">
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1Ndd6FN2aEW-MQwokUbLxFdgJPXE4WrrX/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_13.webp" alt="Immersive Core full"></a>
+            </div>
+            <div class="logo-label"><strong>Full Logo</strong> &mdash; On dark background</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display light">
+                <a href="https://drive.google.com/file/d/1KMfmmyFFsSOwR56wzc0q-xjJrER_XN27/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_14.png" alt="Immersive Core black"></a>
+            </div>
+            <div class="logo-label"><strong>Wordmark</strong> &mdash; Black on light</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1Ndd6FN2aEW-MQwokUbLxFdgJPXE4WrrX/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_15.png" alt="Immersive Core white"></a>
+            </div>
+            <div class="logo-label"><strong>Wordmark</strong> &mdash; White on dark</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">Colour Palette</div>
+    <div class="section-desc">Immersive Core is deliberately monochromatic. The absence of colour is the brand statement &mdash; it lets each production's own identity take centre stage.</div>
+    <div class="colour-grid">
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #000000;"></div>
+            <div class="swatch-info">
+                <div class="name">Stage Black</div>
+                <div class="hex">#000000</div>
+                <div class="use">Primary backgrounds, "CORE" block</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #ffffff;"></div>
+            <div class="swatch-info">
+                <div class="name">Spotlight White</div>
+                <div class="hex">#FFFFFF</div>
+                <div class="use">"IMMERSIVE" text, reversed "CORE"</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #1a1a1a; border-bottom: 1px solid #333;"></div>
+            <div class="swatch-info">
+                <div class="name">Curtain Grey</div>
+                <div class="hex">#1A1A1A</div>
+                <div class="use">Card backgrounds, secondary surfaces</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #a3a3a3;"></div>
+            <div class="swatch-info">
+                <div class="name">Programme Grey</div>
+                <div class="hex">#A3A3A3</div>
+                <div class="use">Body text, secondary information</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== ESCAPE CORE ===== -->
+<div id="ec" class="page">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(22,101,52,0.08), transparent);">
+    <div class="brand-badge" style="border: 1px solid var(--ec-green); color: var(--ec-green);">Subsidiary Brand</div>
+    <h2>Escape Core</h2>
+    <p>Puzzle rooms, escape experiences, and cerebral challenges. The Escape Core identity uses a distinctive maze-pattern fill within the letterforms, reinforcing the puzzle-solving theme at every level.</p>
+</div>
+<div class="section">
+    <div class="section-title">Logo Variants</div>
+    <div class="section-desc">The "ESCAPE" wordmark features an intricate maze pattern within each letter, rendered in the brand green. "CORE" appears as a clean sans-serif below. The maze pattern is a key brand element that must be reproduced from the master artwork &mdash; never recreated.</div>
+    <div class="logo-grid">
+        <div class="logo-box">
+            <div class="logo-display dark">
+                <a href="https://drive.google.com/file/d/1PC2H1kYRAejI2O13NTQ068QfL0DZFD2M/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_16.png" alt="Escape Core white"></a>
+            </div>
+            <div class="logo-label"><strong>Primary</strong> &mdash; Green + White on dark</div>
+        </div>
+        <div class="logo-box">
+            <div class="logo-display light">
+                <a href="https://drive.google.com/file/d/1_WEipzD-wd-b2ZCoYQ0HrtQhiThYz0Zj/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_17.png" alt="Escape Core black"></a>
+            </div>
+            <div class="logo-label"><strong>Primary</strong> &mdash; Green + Black on light</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">Colour Palette</div>
+    <div class="colour-grid">
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #166534;"></div>
+            <div class="swatch-info">
+                <div class="name">Maze Green</div>
+                <div class="hex">#166534</div>
+                <div class="use">Primary &mdash; "ESCAPE" letterforms, accents</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #0a0a0a; border-bottom: 1px solid #333;"></div>
+            <div class="swatch-info">
+                <div class="name">Room Black</div>
+                <div class="hex">#0A0A0A</div>
+                <div class="use">Backgrounds, "CORE" text</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #f5f5f5;"></div>
+            <div class="swatch-info">
+                <div class="name">Clue White</div>
+                <div class="hex">#F5F5F5</div>
+                <div class="use">Text on dark, "CORE" on dark mode</div>
+            </div>
+        </div>
+        <div class="colour-swatch">
+            <div class="swatch-block" style="background: #22c55e;"></div>
+            <div class="swatch-info">
+                <div class="name">Accent Green</div>
+                <div class="hex">#22C55E</div>
+                <div class="use">Success states, digital highlights</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== MAZE WORLDS ===== -->
+<div id="mazes" class="page">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(220,38,38,0.05), transparent);">
+    <div class="brand-badge" style="border: 1px solid var(--red-primary); color: var(--red-primary);">Experience Brands</div>
+    <h2>Scare Core Maze Worlds</h2>
+    <p>Each maze world has its own distinct visual identity built around a stylised wordmark. These logos are designed to evoke the theme and atmosphere of each experience. They exist within the Scare Core brand family but have creative freedom in their individual expression.</p>
+</div>
+<div class="section">
+    <div class="section-title">Maze World Identities</div>
+    <div class="section-desc">Each maze logo has been crafted with unique textures and treatments that reflect the world within. These are fixed artworks &mdash; they must never be recreated, recoloured, or modified.</div>
+    <div class="maze-grid">
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1SW1FmNCTbmo5KIQqORj8ckIOv0ywKduf/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_18.webp" alt="Westlake Witch Trials"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #8B3A62;"></span>
+                <span style="background: #D4621A;"></span>
+                <span style="background: #E8962E;"></span>
+                <span style="background: #4A1A3D;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Westlake Witch Trials</h4>
+                <p>Neon-fire typography with purple and orange glow. Evokes burning pyres and occult ritual. Dark background only.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1EE3WluZ6X72O9c9q0pUoYbu8BDstS_IK/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_19.webp" alt="The Bunker"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #C4A97D;"></span>
+                <span style="background: #8B7355;"></span>
+                <span style="background: #D4C4A8;"></span>
+                <span style="background: #5C4A32;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>The Bunker</h4>
+                <p>Cracked concrete texture with barbed wire detail. Sand and stone tones. Works on light or dark backgrounds.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1nawDDMoetnZXA65zUji52aIkh8vt5ghP/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_20.webp" alt="Night Terrors"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #E8E8E8;"></span>
+                <span style="background: #B0B0B0;"></span>
+                <span style="background: #888;"></span>
+                <span style="background: #333;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Night Terrors</h4>
+                <p>Shattered glass and lightning bolt typography in white/silver. Fragile, jagged energy. Dark background required.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1Fj1m8bp_lafpw-SL50Hycul3L5mbwfcT/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_21.webp" alt="Drowned"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #6B8A7A;"></span>
+                <span style="background: #4A6B5C;"></span>
+                <span style="background: #8BA89A;"></span>
+                <span style="background: #3D5A4D;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Drowned</h4>
+                <p>Cracked stone with dripping water effects in muted teal-grey. Heavy, submerged feel. Works on light or dark.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1bcvZMPNW_al0AhQlVenX3AZ0UQ5cEEL5/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_22.webp" alt="Signal Loss"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #C0C0C0;"></span>
+                <span style="background: #808080;"></span>
+                <span style="background: #E0E0E0;"></span>
+                <span style="background: #404040;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Signal Loss</h4>
+                <p>Glitch-tech outline lettering with circuit-board interruptions. Digital, unstable feel. Dark background required.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1KY_QkRpzDl3fX6r5GTXVlN_Tr1vpbiGw/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_23.webp" alt="Strings of Control"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #8B6914;"></span>
+                <span style="background: #A0822A;"></span>
+                <span style="background: #6B5010;"></span>
+                <span style="background: #C4A244;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Strings of Control</h4>
+                <p>Rusted metal and cracked bronze lettering on black. Industrial decay. Dark background only.</p>
+            </div>
+        </div>
+    </div>        <div class="artwork-section">
+            <h3>Strings of Control — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/16gPe5g-KKa7XKHY1fuvQwSGnAQpZgGKk/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=16gPe5g-KKa7XKHY1fuvQwSGnAQpZgGKk&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/16gPe5g-KKa7XKHY1fuvQwSGnAQpZgGKk/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/10xNcwMUmScFIwL70NAtroyDTQEhNH6MW/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=10xNcwMUmScFIwL70NAtroyDTQEhNH6MW&sz=w400" alt="Queue Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Queue Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/10xNcwMUmScFIwL70NAtroyDTQEhNH6MW/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1T5gCudZXD99Q_NHga6jqa81V8CySxHCb" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>Signal Loss — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1epjUUPokGBDrYMGsqFYWYDQUzQ2ROni3/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1epjUUPokGBDrYMGsqFYWYDQUzQ2ROni3&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1epjUUPokGBDrYMGsqFYWYDQUzQ2ROni3/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1rhoTT2d7iJI5neEaK7Y09AujG9GjgOPQ/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1rhoTT2d7iJI5neEaK7Y09AujG9GjgOPQ&sz=w400" alt="Queue Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Queue Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1rhoTT2d7iJI5neEaK7Y09AujG9GjgOPQ/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/15pe--EKET9hynknqm57JIhjq-i3TvlDz" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>Drowned — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1lAdc373YNdyAT_pl7u3080F25V0fSdoY/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1lAdc373YNdyAT_pl7u3080F25V0fSdoY&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1lAdc373YNdyAT_pl7u3080F25V0fSdoY/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1iISYKoA4lm3_GamRRoEsH5yRNun85rIr/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1iISYKoA4lm3_GamRRoEsH5yRNun85rIr&sz=w400" alt="Queue Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Queue Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1iISYKoA4lm3_GamRRoEsH5yRNun85rIr/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1-G6mV-XNKFMuPgq3iilrZS2utoP1E0Dw" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>Night Terrors — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/169xXbWb8NpfwdDqm2vEXLrIIp6aXs9_x/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=169xXbWb8NpfwdDqm2vEXLrIIp6aXs9_x&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/169xXbWb8NpfwdDqm2vEXLrIIp6aXs9_x/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1Y34bxXDn3MGGcN1d5VNbhLai_a3IXFP0/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1Y34bxXDn3MGGcN1d5VNbhLai_a3IXFP0&sz=w400" alt="Queue Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Queue Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1Y34bxXDn3MGGcN1d5VNbhLai_a3IXFP0/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1kEHqbEkREgvziQB_m9bFOw9uKwogmIiO" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>The Bunker — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1UeQElPGO6Fs6CMV_6KNw2oZTO695-a2b/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1UeQElPGO6Fs6CMV_6KNw2oZTO695-a2b&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1UeQElPGO6Fs6CMV_6KNw2oZTO695-a2b/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1lF1WURkYdkL0ZpqdNFI0anzRRbx6YvjB/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1lF1WURkYdkL0ZpqdNFI0anzRRbx6YvjB&sz=w400" alt="Queue Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Queue Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1lF1WURkYdkL0ZpqdNFI0anzRRbx6YvjB/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/12BQmcahXhKPJ-ek5rtY0Dm9ZEOoHdDj1" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>Westlake Witch Trials — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1GU6yLn1E-NDkHMS1izekvGCuFfhb6VrX/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1GU6yLn1E-NDkHMS1izekvGCuFfhb6VrX&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1GU6yLn1E-NDkHMS1izekvGCuFfhb6VrX/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1kfudTrtuYADM4wzC3bl94BkD0IoO9s61/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1kfudTrtuYADM4wzC3bl94BkD0IoO9s61&sz=w400" alt="Queue Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Queue Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1kfudTrtuYADM4wzC3bl94BkD0IoO9s61/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1cN_9g9sCcv_ie5DOdBGeGa1Y87wQCkWy" target="_blank">View all assets in Drive</a>
+        </div>                                                
+</div>
+</div>
+
+<!-- ===== SHOWS ===== -->
+<div id="shows" class="page">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(220,38,38,0.05), transparent);">
+    <div class="brand-badge" style="border: 1px solid var(--red-primary); color: var(--red-primary);">Scare Core</div>
+    <h2>Scare Core Shows</h2>
+    <p>Each Scare Core show carries its own visual identity. Unlike the stark intensity of the parent brand, individual productions are free to use colour and texture to express their unique atmosphere.</p>
+</div>
+<div class="section">
+    <div class="section-title">Show Identities</div>
+    <div class="maze-grid">
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1FO9AcxZ5xvRGi_sTLv4CJnPTE3vLBg60/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_24.png" alt="The Summoning" style="max-height: 140px;"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #9B6DC6;"></span>
+                <span style="background: #2D2D3D;"></span>
+                <span style="background: #D4B8E8;"></span>
+                <span style="background: #1A1A2E;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>The Summoning</h4>
+                <p>Geometric compass rose with mystical purple gradients. Occult and ceremonial. Light or dark backgrounds.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/12GVNFMVv6ZxnUdg6CwHlACeXrTkXH4XZ/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_25.png" alt="Nightmare Realm" style="max-height: 140px;"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #C0C0C0;"></span>
+                <span style="background: #808080;"></span>
+                <span style="background: #E0E0E0;"></span>
+                <span style="background: #404040;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Nightmare Realm</h4>
+                <p>Elegant silver serif typography with a subtle smoke watermark. Refined horror. Light backgrounds preferred.</p>
+            </div>
+        </div>
+        <div class="maze-card">
+            <div class="maze-card-logo" style="background: #0a0a0a;">
+                <a href="https://drive.google.com/file/d/1yjFoNcpthmYFg5Jx_7JDs_ZNIho37Z5n/view" target="_blank" style="display:contents;cursor:pointer;"><img src="img/logo_26.png" alt="Shadows Unleashed" style="max-height: 140px;"></a>
+            </div>
+            <div class="maze-colour-strip">
+                <span style="background: #D4A8D4;"></span>
+                <span style="background: #8BBAD4;"></span>
+                <span style="background: #C0C0C0;"></span>
+                <span style="background: #A8C4B8;"></span>
+            </div>
+            <div class="maze-card-info">
+                <h4>Shadows Unleashed</h4>
+                <p>Bold outlined sans-serif with multicolour prismatic fill. Energetic and kinetic. Light backgrounds preferred.</p>
+            </div>
+        </div>
+    </div>        <div class="artwork-section">
+            <h3>Shadows Unleashed — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1k5FvBVE8480dCl1YC21RlSZhQi3fUfy1/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1k5FvBVE8480dCl1YC21RlSZhQi3fUfy1&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1k5FvBVE8480dCl1YC21RlSZhQi3fUfy1/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1QULh9rnt4m5V9033ZWbk01xTxjhG1lxR" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>Nightmare Realm — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1GeoCs6MflKQGnRTHvSRg3JCMJYIXLPIz/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1GeoCs6MflKQGnRTHvSRg3JCMJYIXLPIz&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1GeoCs6MflKQGnRTHvSRg3JCMJYIXLPIz/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1RtBi4s9yeJGcN3dgJ4Rhhy7uRnUXZXxd" target="_blank">View all assets in Drive</a>
+        </div>        <div class="artwork-section">
+            <h3>The Summoning — Assets</h3>
+            <div class="artwork-grid">
+                <div class="artwork-card">
+                    <div class="artwork-preview">
+                        <a href="https://drive.google.com/file/d/1PuxwkO0MWZcr0go4en3Cr7lJmpEcCUx8/view" target="_blank" style="display:block;cursor:pointer;"><img src="https://drive.google.com/thumbnail?id=1PuxwkO0MWZcr0go4en3Cr7lJmpEcCUx8&sz=w400" alt="Background"></a>
+                    </div>
+                    <div class="artwork-info">
+                        <h4>Background</h4>
+                        <div class="artwork-links">
+                            <a class="artwork-link" href="https://drive.google.com/file/d/1PuxwkO0MWZcr0go4en3Cr7lJmpEcCUx8/view" target="_blank">View in Drive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="asset-folder-link" href="https://drive.google.com/drive/folders/1aa3yDRpT9lzj9jMcBQ8Hzhu0TRxpu9uQ" target="_blank">View all assets in Drive</a>
+        </div>                        
+</div>
+</div>
+
+<!-- ===== TYPOGRAPHY ===== -->
+<div id="typography" class="page">
+<div class="page-header">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Standards</div>
+    <h2>Typography</h2>
+    <p>Consistent typographic treatment across all brands ensures professionalism and readability.</p>
+</div>
+<div class="section">
+    <div class="section-title">Primary Typefaces</div>
+    <div class="section-desc">Two typefaces form the foundation of all CCG brand communications. They are used across digital, print, and signage applications.</div>
+
+    <div class="type-sample">
+        <div class="font-name">Space Grotesk &mdash; Headings &amp; Display</div>
+        <div class="sample-text" style="font-family: 'Space Grotesk', sans-serif;">
+            <div style="font-size: 2.5rem; font-weight: 700; line-height: 1.2;">The Future of Fear</div>
+            <div style="font-size: 1.6rem; font-weight: 500; margin-top: 0.5rem; color: var(--text-secondary);">Immersive Entertainment Redefined</div>
+            <div style="font-size: 1rem; font-weight: 400; margin-top: 0.5rem; color: var(--text-muted);">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+        </div>
+    </div>
+
+    <div class="type-sample">
+        <div class="font-name">Inter &mdash; Body &amp; Interface</div>
+        <div class="sample-text" style="font-family: 'Inter', sans-serif;">
+            <div style="font-size: 1.1rem; font-weight: 400;">Core Creative Group is a &pound;32M immersive entertainment company operating across three brands: Scare Core, Immersive Core, and Escape Core. Located on 301 acres of freehold land at Cowsland Farm, Nottinghamshire.</div>
+            <div style="font-size: 0.85rem; font-weight: 300; margin-top: 0.75rem; color: var(--text-muted);">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+        </div>
+    </div>
+
+    <div class="section-title" style="margin-top: 2rem;">Type Scale</div>
+    <div style="margin-top: 1rem;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size: 2.5rem; font-weight: 700; padding: 8px 0; border-bottom: 1px solid var(--border);">H1 &mdash; 2.5rem / 700 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">Page titles</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.8rem; font-weight: 700; padding: 8px 0; border-bottom: 1px solid var(--border);">H2 &mdash; 1.8rem / 700 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">Section headings</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.4rem; font-weight: 600; padding: 8px 0; border-bottom: 1px solid var(--border);">H3 &mdash; 1.4rem / 600 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">Sub-sections</span></div>
+        <div style="font-family:'Inter',sans-serif; font-size: 1.05rem; padding: 8px 0; border-bottom: 1px solid var(--border);">Body &mdash; 1.05rem / 400 <span style="font-size: 0.8rem; color: var(--text-muted);">General text</span></div>
+        <div style="font-family:'Inter',sans-serif; font-size: 0.85rem; padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--text-secondary);">Small &mdash; 0.85rem / 400 <span style="font-size: 0.8rem; color: var(--text-muted);">Captions, labels</span></div>
+        <div style="font-family:'Inter',sans-serif; font-size: 0.7rem; padding: 8px 0; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.15em;">Overline &mdash; 0.7rem / 600 &nbsp; Badges, section labels</div>
+    </div>
+</div>
+</div>
+
+<!-- ===== TONE OF VOICE ===== -->
+<div id="tone" class="page">
+<div class="page-header">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Standards</div>
+    <h2>Tone of Voice</h2>
+    <p>Each brand speaks differently to its audience, but all share a foundation of confidence, authenticity, and directness.</p>
+</div>
+<div class="section">
+    <div class="section-title">Brand Voices</div>
+    <div class="tone-grid">
+        <div class="tone-card">
+            <h4 style="color: var(--purple);">Core Creative Group</h4>
+            <p>Professional, measured, and authoritative. Speaks to investors, partners, and industry. Data-driven and confident without being arrogant. Never uses superlatives without evidence to back them up.</p>
+            <div class="tone-example">"A &pound;32M immersive entertainment investment built on 301 acres of freehold land, generating projected returns across three distinct entertainment verticals."</div>
+        </div>
+        <div class="tone-card">
+            <h4 style="color: var(--red-primary);">Scare Core</h4>
+            <p>Bold, provocative, and darkly playful. Speaks directly to thrill-seekers. Short, punchy sentences. Uses tension and mystery. Never explains too much &mdash; let the experience speak.</p>
+            <div class="tone-example">"Six worlds. One night. No mercy. This isn't a theme park. This is survival."</div>
+        </div>
+        <div class="tone-card">
+            <h4>Immersive Core</h4>
+            <p>Elegant, atmospheric, and slightly cryptic. Speaks to theatre-goers and experience seekers. Evocative language that creates imagery. More poetic than the other brands.</p>
+            <div class="tone-example">"Step through the threshold. Leave the world you know at the door. Tonight, the story needs you."</div>
+        </div>
+        <div class="tone-card">
+            <h4 style="color: var(--ec-green);">Escape Core</h4>
+            <p>Clever, energetic, and challenging. Speaks to puzzle enthusiasts and groups. Uses questions and teasers. Implies intelligence and rewards curiosity.</p>
+            <div class="tone-example">"Think you're clever? Prove it. 60 minutes. One locked room. Every detail matters."</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">Universal Principles</div>
+    <div class="rules-grid">
+        <div class="rule-card do">
+            <div class="rule-label">Always</div>
+            <p>Be direct and confident. Write like a human, not a press release. Let the experiences sell themselves. Use active voice. Be specific over vague.</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Never</div>
+            <p>Use corporate buzzwords, clich&eacute;s, or filler. Don't over-explain experiences &mdash; mystery is the product. Avoid passive voice and weak qualifiers like "quite" or "rather".</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ===== USAGE RULES ===== -->
+<div id="usage" class="page">
+<div class="page-header">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Standards</div>
+    <h2>Usage Rules</h2>
+    <p>Protecting the integrity of every brand mark across all applications.</p>
+</div>
+<div class="section">
+    <div class="section-title">Logo Clear Space</div>
+    <div class="section-desc">All logos require a minimum clear space equal to the height of the "C" in "CORE" on all sides. No other elements, text, or graphics should encroach on this space.</div>
+</div>
+<div class="section">
+    <div class="section-title">Do's and Don'ts</div>
+    <div class="rules-grid">
+        <div class="rule-card do">
+            <div class="rule-label">Do</div>
+            <p>Always use logos from the approved master files. Maintain the proportions exactly as provided. Use approved colour variants only.</p>
+        </div>
+        <div class="rule-card do">
+            <div class="rule-label">Do</div>
+            <p>Ensure sufficient contrast between the logo and its background. Test at small sizes to ensure legibility.</p>
+        </div>
+        <div class="rule-card do">
+            <div class="rule-label">Do</div>
+            <p>Use the CCG icon mark at small sizes where the full wordmark would be illegible (favicons, app icons, social profile pictures).</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Don't</div>
+            <p>Never stretch, squash, rotate, or distort any logo. Never change the colours outside of the approved variants.</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Don't</div>
+            <p>Never place logos on busy photographic backgrounds without a solid or semi-transparent backing panel.</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Don't</div>
+            <p>Never recreate the maze pattern in Escape Core, the shattered E in Scare Core, or any maze world logo texture. Always use master artwork files.</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Don't</div>
+            <p>Never add effects (drop shadows, outer glows, bevels, outlines) to any logo unless specified in the master artwork.</p>
+        </div>
+        <div class="rule-card dont">
+            <div class="rule-label">Don't</div>
+            <p>Never combine subsidiary logos with the CCG parent logo on the same material. They serve different audiences and contexts.</p>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">Minimum Sizes</div>
+    <div class="section-desc">To ensure legibility and brand integrity across all applications.</div>
+    <div class="rules-grid">
+        <div class="rule-card do">
+            <div class="rule-label">Digital</div>
+            <p>Full wordmarks: minimum 120px wide. Icon marks: minimum 32px. Favicons: 16px (icon only).</p>
+        </div>
+        <div class="rule-card do">
+            <div class="rule-label">Print</div>
+            <p>Full wordmarks: minimum 30mm wide. Icon marks: minimum 10mm. Maze logos: minimum 40mm wide to preserve texture detail.</p>
+        </div>
+    </div>
+</div>
+<div class="section" style="border-bottom: none;">
+    <div class="section-title">File Formats</div>
+    <div class="section-desc">Master logo files are available in the following formats. Always use the highest quality format available for the application.</div>
+    <div class="rules-grid">
+        <div class="rule-card do">
+            <div class="rule-label">For Print</div>
+            <p>PNG (high-res, transparent background). Request vector SVG/AI files from the creative team for large-format printing.</p>
+        </div>
+        <div class="rule-card do">
+            <div class="rule-label">For Digital</div>
+            <p>WebP for web use (smaller file size). PNG for social media and presentations. SVG for responsive web elements.</p>
+        </div>
+    </div>
+</div>
+</div>
+
+</div><!-- end .main -->
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.closest('.nav-item')?.classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+// Allow TOC cards to also navigate
+document.querySelectorAll('.toc-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const page = this.getAttribute('onclick')?.match(/showPage\('(\w+)'\)/)?.[1];
+        if (page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(page).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    });
+});
+</script>
+
+<!-- ===== ARTWORK & ASSETS ===== -->
+<div id="assets" class="page" style="margin-left: 260px;">
+<div class="page-header" style="background: linear-gradient(135deg, rgba(139,92,246,0.05), transparent);">
+    <div class="brand-badge" style="border: 1px solid var(--purple); color: var(--purple);">Resources</div>
+    <h2>Artwork &amp; Assets</h2>
+    <p>All brand assets in one place. Every logo, artwork file, and creative asset is hosted on Google Drive. Click any image to view the file, or use the folder links to browse.</p>
+</div>
+
+<div class="section">
+    <a class="master-drive-btn" href="https://drive.google.com/drive/folders/19xOWHptIH_y33du5Y6fF4ABqSI85gf_G" target="_blank">Open Master Drive Folder</a>
+</div>
+
+<div class="section">
+    <div class="section-title">Core Brand Logos</div>
+    <div class="section-desc">Primary logos for each brand. Click to view on Drive, or open the folder for all variants.</div>
+    <div class="asset-grid">
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1eAnNwy-5ZMFkF_W3Ijhs3Q9966qxBvqW/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1eAnNwy-5ZMFkF_W3Ijhs3Q9966qxBvqW&sz=w300" alt="Core Creative Group">
+            </a>
+            <div class="asset-card-body">
+                <h4>Core Creative Group</h4>
+                <p>5 logo variants</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1JYvEeM_Mbq8qSAU8Pn3IQnrTqSDSDV2B" target="_blank">All logos</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1aBJWyNAV_trfd5-9StFz2kUEwyBPBENw/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1aBJWyNAV_trfd5-9StFz2kUEwyBPBENw&sz=w300" alt="Scare Core">
+            </a>
+            <div class="asset-card-body">
+                <h4>Scare Core</h4>
+                <p>2 logo variants</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1O73QUsMrgbnFbCwDakCFtiTQC_nIedyT" target="_blank">All logos</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1Ndd6FN2aEW-MQwokUbLxFdgJPXE4WrrX/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1Ndd6FN2aEW-MQwokUbLxFdgJPXE4WrrX&sz=w300" alt="Immersive Core">
+            </a>
+            <div class="asset-card-body">
+                <h4>Immersive Core</h4>
+                <p>4 logo variants</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1jqZkNFyRp4MhyPUAy3oglpvsCMlQIlKG" target="_blank">All logos</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1PC2H1kYRAejI2O13NTQ068QfL0DZFD2M/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1PC2H1kYRAejI2O13NTQ068QfL0DZFD2M&sz=w300" alt="Escape Core">
+            </a>
+            <div class="asset-card-body">
+                <h4>Escape Core</h4>
+                <p>2 logo variants</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1V_CqTnD80cgBQTz-XrxKGjJtrrvW5jyX" target="_blank">All logos</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Scare Core Mazes</div>
+    <div class="section-desc">Logo and artwork files for each maze experience.</div>
+    <div class="asset-grid">
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1SW1FmNCTbmo5KIQqORj8ckIOv0ywKduf/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1SW1FmNCTbmo5KIQqORj8ckIOv0ywKduf&sz=w300" alt="Westlake Witch Trials">
+            </a>
+            <div class="asset-card-body">
+                <h4>Westlake Witch Trials</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1cN_9g9sCcv_ie5DOdBGeGa1Y87wQCkWy" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1EE3WluZ6X72O9c9q0pUoYbu8BDstS_IK/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1EE3WluZ6X72O9c9q0pUoYbu8BDstS_IK&sz=w300" alt="The Bunker">
+            </a>
+            <div class="asset-card-body">
+                <h4>The Bunker</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/12BQmcahXhKPJ-ek5rtY0Dm9ZEOoHdDj1" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1nawDDMoetnZXA65zUji52aIkh8vt5ghP/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1nawDDMoetnZXA65zUji52aIkh8vt5ghP&sz=w300" alt="Night Terrors">
+            </a>
+            <div class="asset-card-body">
+                <h4>Night Terrors</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1kEHqbEkREgvziQB_m9bFOw9uKwogmIiO" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1Fj1m8bp_lafpw-SL50Hycul3L5mbwfcT/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1Fj1m8bp_lafpw-SL50Hycul3L5mbwfcT&sz=w300" alt="Drowned">
+            </a>
+            <div class="asset-card-body">
+                <h4>Drowned</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1-G6mV-XNKFMuPgq3iilrZS2utoP1E0Dw" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1bcvZMPNW_al0AhQlVenX3AZ0UQ5cEEL5/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1bcvZMPNW_al0AhQlVenX3AZ0UQ5cEEL5&sz=w300" alt="Signal Loss">
+            </a>
+            <div class="asset-card-body">
+                <h4>Signal Loss</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/15pe--EKET9hynknqm57JIhjq-i3TvlDz" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1KY_QkRpzDl3fX6r5GTXVlN_Tr1vpbiGw/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1KY_QkRpzDl3fX6r5GTXVlN_Tr1vpbiGw&sz=w300" alt="Strings of Control">
+            </a>
+            <div class="asset-card-body">
+                <h4>Strings of Control</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1T5gCudZXD99Q_NHga6jqa81V8CySxHCb" target="_blank">View assets</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Scare Core Shows</div>
+    <div class="section-desc">Logo and artwork files for each live show production.</div>
+    <div class="asset-grid">
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1FO9AcxZ5xvRGi_sTLv4CJnPTE3vLBg60/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1FO9AcxZ5xvRGi_sTLv4CJnPTE3vLBg60&sz=w300" alt="The Summoning">
+            </a>
+            <div class="asset-card-body">
+                <h4>The Summoning</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1aa3yDRpT9lzj9jMcBQ8Hzhu0TRxpu9uQ" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/12GVNFMVv6ZxnUdg6CwHlACeXrTkXH4XZ/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=12GVNFMVv6ZxnUdg6CwHlACeXrTkXH4XZ&sz=w300" alt="Nightmare Realm">
+            </a>
+            <div class="asset-card-body">
+                <h4>Nightmare Realm</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1RtBi4s9yeJGcN3dgJ4Rhhy7uRnUXZXxd" target="_blank">View assets</a>
+            </div>
+        </div>
+        <div class="asset-card">
+            <a href="https://drive.google.com/file/d/1yjFoNcpthmYFg5Jx_7JDs_ZNIho37Z5n/view" target="_blank" class="asset-card-thumb">
+                <img src="https://drive.google.com/thumbnail?id=1yjFoNcpthmYFg5Jx_7JDs_ZNIho37Z5n&sz=w300" alt="Shadows Unleashed">
+            </a>
+            <div class="asset-card-body">
+                <h4>Shadows Unleashed</h4>
+                <p>Logo + artwork</p>
+                <a class="asset-card-link" href="https://drive.google.com/drive/folders/1QULh9rnt4m5V9033ZWbk01xTxjhG1lxR" target="_blank">View assets</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
